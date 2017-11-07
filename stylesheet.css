@@ -1,0 +1,153 @@
+body {
+    background-color: #0A2435;
+}
+
+.dropdown-button {
+    width: 200%;
+}
+
+.nav-wrapper:hover {
+    box-shadow: 0px 7px 5px #6AB8EB;
+}
+
+.nav-wrapper {
+    box-shadow: 0px 3px 5px #6AB8EB;
+    transition: box-shadow 0.4s;
+    background-color: #2F688D;
+}
+
+.nav-wrapper a {
+    color: #FFF;
+}
+
+.nav-wrapper li {
+    background-color: #6E653F;
+}
+
+.nav-wrapper li a {
+    color: white;
+}
+
+.display img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    max-width:60%;
+    max-height:60%;
+}
+
+#triangle-left {
+    width: 0;
+    height: 0;
+    border-top: 50% solid transparent;
+    border-right: 100% solid red;
+    border-bottom: 50% solid transparent;
+}
+
+.collection {
+    margin-top: 2.5%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    width: 95%;
+}
+
+.collection .collection-item {
+    background-color: #F0DE89;
+    color: #6E653F;
+}
+
+.collection a.collection-item {
+    color: #6E653F;
+}
+
+#blanks {
+    text-align: center;
+}
+
+#blanks h2 {
+    margin-left: 1%;
+    display: inline;
+    margin-right: 1%;
+}
+
+.mainBtns { 
+    margin-top: 4%;
+}
+
+.mainBtns a {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 40%;
+}
+
+.btn {
+    background-color: #2F688D;
+}
+
+.btn:hover {
+    background-color: #6AB8EB;
+}
+
+#recordList a.collection-item {
+    font-size: 300%;
+    padding-bottom: 4%;
+    padding-top: 4%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.playback {
+    margin-top: 2%;
+    margin-bottom: 1%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 65px;
+}
+
+#PlayBtn {
+    background-color: #413c25;
+}
+
+#PlayBtn:hover {
+    background-color: #006500;
+}
+
+#HomeBtn {
+    background-color: #413c25;
+}
+
+#HomeBtn:hover {
+    background-color: #910000;
+}
+
+.letterChoice {
+    display: block;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#resultList {
+    display: none;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#gameNext {
+    display: none;
+}
+
+.letterChoice ul a {
+    padding-left: 20px;
+    padding-right: 30px;
+    align-content: center;
+    width: 1%;
+}
