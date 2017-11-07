@@ -109,8 +109,16 @@ body {
 
 .graph-value {
     float: left;
-    width: 90%;
+    min-height: 50px;
+    width: 85%;
     background: rgba(125, 184, 222, 0.9);
+    transition: width 1.5s;
+}
+
+.graph-percentage {
+    float: left;
+    width: 5%;
+    text-align: center;
 }
 
 .graph-value p {
