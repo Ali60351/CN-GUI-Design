@@ -9,33 +9,39 @@
 </head>
 
 <body>
-        <div class="navbar-fixed">
-                <nav>
-                    <div class="nav-wrapper">
-                        <a href="#" class="brand-logo center">OpenSourceSync</a>
-                    </div>
-                </nav>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">OpenSourceSync</a>
             </div>
-
-    <div class="display">
-        <img src="images/logo.png">
+        </nav>
     </div>
 
     <div class="mainBtns">
-        <a href="index.html" class="waves-effect waves-light btn">Start</a>
-        <br/>
-        <a href="index.html" class="waves-effect waves-light btn">Stop</a>
-        <br/>
-        <a href="Tutorial.html" class="waves-effect waves-light btn">Configure</a>
-        <br/>
-        <a href="Results.html" class="waves-effect waves-light btn">Exit</a>
+        <a href="#" class="waves-effect waves-light btn">Start</a>
+        <a href="#" class="waves-effect waves-light btn">Stop</a>
+
+        <div class="graph">
+            <div class="graph-bar">
+                <div class="graph-label">
+                    <p>MEOW</p>
+                </div>
+                <div class="graph-value">
+                    <p>0%</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div id="particles-js"></div>
 
     <script>
         window.$ = window.jQuery = require('./jquery.min.js');
 
     </script>
     <script type="text/javascript" src="./hammer.min.js"></script>
+    <script type="text/javascript" src="./particles.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 
