@@ -112,7 +112,7 @@ body {
     min-height: 50px;
     /* width: 85%; */
     width: 0%;
-    background: rgba(252, 154, 159, 0.9);
+    background: rgba(204, 75, 81, 0.9);
     transition: width 1.5s;
 }
 
