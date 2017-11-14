@@ -4,6 +4,7 @@ html {
 
 body {
     background-color: #AA242B;
+    background-image: url('./header.jpg');
     min-height: 100%;
     margin: 0;
 }
@@ -12,13 +13,7 @@ body {
     width: 200%;
 }
 
-.nav-wrapper:hover {
-    box-shadow: 0px 7px 5px #FDC3C6;
-}
-
 .nav-wrapper {
-    box-shadow: 0px 3px 5px #FDC3C6;
-    transition: box-shadow 0.4s;
     background-color: #CC4B51;
 }
 
@@ -134,12 +129,31 @@ body {
     margin-right: 2.5%;
 }
 
-.btn {
-    background-color: #CC4B51;
+.Xbtn {
+    padding: 15px 30px;
+    border-radius: 300px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: white;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    color: #CC4B51;
+    transition-duration: 0.4s;
+    object-position: center;
+    position: static;
+}
 }
 
-.btn:hover {
-    background-color: #FDC3C6;
+a:hover {
+    background-color: #CC4B51;
+    color: white;
+}
+
+.Xbtn:hover {
+    background-color: #CC4B51;
+    color: white;
 }
 
 #recordList a.collection-item {
