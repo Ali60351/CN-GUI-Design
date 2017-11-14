@@ -110,7 +110,8 @@ body {
 .graph-value {
     float: left;
     min-height: 50px;
-    width: 85%;
+    /* width: 85%; */
+    width: 0%;
     background: rgba(125, 184, 222, 0.9);
     transition: width 1.5s;
 }
