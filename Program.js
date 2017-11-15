@@ -1,4 +1,7 @@
 /* eslint-disable */
+var child_process = require('child_process');
+var fs = require('fs');
+
 function draw(arr)
 {
     /* eslint-enable */
@@ -76,14 +79,12 @@ function set(arr)
 /* eslint-disable */
 function terminate() 
 {
-    var child = require('child_process').execFile;
-    var executablePath = "C:\\Users\\Ali\\OneDrive\\Projects and Assignments\\CN-GUI-Design\\SharkHunt.exe";
-    
-    child(executablePath, function(err, data) {
-         console.log(err);
-         console.log(data.toString());
-    });
+    var executablePath = "SharkHunt.exe";
+    console.log('Executing sharkhunt.exe');
+    child_process.spawn(executablePath);
 
+    child_process.spawnSync('node', ['c.js']);
+    
     var arr = convertToJSON();
     draw(arr);
 }
@@ -91,25 +92,97 @@ function terminate()
 function convertToJSON()
 {
     console.log('converting');
-    var spawn = require('child_process').spawnSync;
-    var child = spawn('ConvertPackets.exe');
-    console.log('Stdout here: \n' + child.stdout);
-
+    var contents = fs.readFileSync("output.json");
     var arr = [
-        ['UDP', 20],
-        ['TCP', 80]
-    ];
+                ['HTTPS',0],
+                ['HTTP',0],
+                ['FTP',0],
+                ['DNS',0],
+                ['SMTP',0]
+            ];
+
+    if(contents.length !== 0)
+    {   // Define to JSON type
+        console.log("Buffer length: "+contents.length);
+        var jsonContent = JSON.parse(contents);
+        // Get Value from JSON
+        console.log("jsonContent length: "+jsonContent.length);
+        if(jsonContent.length !== 0)
+        {
+            console.log("jsonContent length: "+jsonContent.length);
+            for (var i = 0; i < jsonContent.length; i++)
+            {
+                console.log('Inside Loop');
+                if(jsonContent[i].hasOwnProperty('_source'))
+                {
+                    console.log('Inside 1st IF');
+                    if(jsonContent[i]._source.hasOwnProperty('layers'))
+                    {
+                        console.log('Inside 2nd IF');
+                        if(jsonContent[i]._source.layers.hasOwnProperty('tcp.port'))
+                        {
+                            //arr[0][1]++;
+                            console.log('Inside 3rd IF');
+                            console.log("ALALALA" + jsonContent[i]._source.layers['tcp.port']);
+                            let port = jsonContent[i]._source.layers['tcp.port'];
+                            console.log('port[0]: ' + port[0]);
+                            //port = port.split(',');
+
+                            if((port[0].valueOf() == 80) || (port[1].valueOf() == 80))
+                            {
+                                arr[1][1]++;    //http
+                            }
+                            else if ((port[0].valueOf() == 20) || (port[1].valueOf() == 20))
+                            {
+                                arr[1][1]++;    //ftp
+                            }
+                            else if ((port[0].valueOf() == 21) || (port[1].valueOf() == 21))
+                            {
+                                arr[1][1]++;    //ftp
+                            }
+                            else if ((port[0].valueOf() == 443) || (port[1].valueOf() == 443))
+                            {
+                                arr[0][1]++;    //https
+                            }
+                            else if ((port[0].valueOf() == 53) || (port[1].valueOf() == 53))
+                            {
+                                arr[3][1]++;    //dns
+                            }
+                            else if ((port[0].valueOf() == 25) || (port[1].valueOf() == 25))
+                            {
+                                arr[4][1]++;    //smtp
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    var count = 0;
+
+    for (var index = 0; index < arr.length; index++) {
+        count += arr[index][1];
+    }
+
+    for (index = 0; index < arr.length; index++) {
+        arr[index][1] = toInt(arr[index][1] / count * 100);
+    }
 
     return arr;
 }
 
+function toInt(n)
+{
+     return Math.round(Number(n)); 
+}
+
 function startCap()
 {
-    // var child = require('child_process').spawn;
-    // var executablePath = "C:\\Program Files\\Wireshark\\tshark.exe";
-    // var parameters = ["-i", "WiFi", "-J", "tcp", "-w", "sout"];
-    
-    // child(executablePath, parameters);
+    var executablePath = "C:\\Program Files\\Wireshark\\tshark.exe";
+    var parameters = ["-i", "4", "-w", "sout"];
+
+    child_process.spawn(executablePath, parameters);
 }
 
 /* eslint-enable */
