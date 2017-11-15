@@ -1,1 +1,1 @@
-electron .
+"C:\electron\dist\electron.exe" .
