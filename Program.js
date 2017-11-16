@@ -110,6 +110,9 @@ function convertToJSON() {
         ['RTP', 0] // 6
     ];
 
+    var previousA = 0;
+    var previousB = 0;
+
     if (contents.length !== 0) { // Define to JSON type
         console.log("Buffer length: " + contents.length);
         var jsonContent = JSON.parse(contents);
@@ -145,11 +148,16 @@ function convertToJSON() {
                                 arr[4][1]++; //smtp
                             } else if (((port[0].valueOf() >= 10000) && (port[0].valueOf() <= 30000)) ||
                                 ((port[1].valueOf() >= 10000) && (port[1].valueOf() <= 30000))) {
-                                arr[6][1]++; //RTP
+                                if (isRTP(previousA, previousB)) {
+                                    arr[6][1]++; //RTP
+                                }
                             } else if (((port[0].valueOf() >= 5060) && (port[0].valueOf() <= 5065)) ||
                                 ((port[1].valueOf() >= 5060) && (port[1].valueOf() <= 5065))) {
                                 arr[5][1]++; //SIP
                             }
+
+                            previousA = port[0].valueOf();
+                            previousB = port[1].valueOf();
                         } else if (jsonContent[i]._source.layers.hasOwnProperty('udp.port')) {
                             var port = jsonContent[i]._source.layers['udp.port'];
                             console.log('port[0]: ' + port[0]);
@@ -165,6 +173,8 @@ function convertToJSON() {
                                 arr[5][1]++; //SIP
                             }
 
+                            previousA = port[0].valueOf();
+                            previousB = port[1].valueOf();
                         }
                     }
                 }
@@ -183,6 +193,27 @@ function convertToJSON() {
     }
 
     return arr;
+}
+
+function isRTP(prevA, prevB)
+{
+    if (prevA >= 5060 && prevA <= 5065) {
+        return true;
+    }
+
+    if (prevB >= 5060 && prevB <= 5065) {
+        return true;
+    }
+
+    if (prevA >= 10000 && prevA <= 30000) {
+        return true;
+    }
+
+    if (prevB >= 10000 && prevB <= 30000) {
+        return true;
+    }
+
+    return false;
 }
 
 function toInt(n) {
