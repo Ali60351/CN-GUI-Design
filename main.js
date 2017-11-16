@@ -22,21 +22,21 @@ function createWindow() {
     show: false
   })
 
-  splashWindow = new BrowserWindow({
-    parent: mainWindow,
-    width: 370,
-    height: 450,
-    frame: false,
-    backgroundColor: '#313131'
-  })
+  // splashWindow = new BrowserWindow({
+  //   parent: mainWindow,
+  //   width: 370,
+  //   height: 450,
+  //   frame: false,
+  //   backgroundColor: '#313131'
+  // })
 
-  splashWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'Splash.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  // splashWindow.loadURL(url.format({
+  //   pathname: path.join(__dirname, 'Splash.html'),
+  //   protocol: 'file:',
+  //   slashes: true
+  // }))
 
-  splashWindow.show()
+  // splashWindow.show()
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -48,7 +48,9 @@ function createWindow() {
   mainWindow.once('ready-to-show', () => {
     mainWindow.maximize()
     mainWindow.show()
-    setTimeout(function () { splashWindow.close() }, 1000);
+    setTimeout(function () {
+      // splashWindow.close() 
+      }, 1000);
   })
 
   // Emitted when the window is closed.
