@@ -167,7 +167,9 @@ function convertToJSON() {
                                 arr[3][1]++; //dns
                             } else if (((port[0].valueOf() >= 10000) && (port[0].valueOf() <= 30000)) ||
                                 ((port[1].valueOf() >= 10000) && (port[1].valueOf() <= 30000))) {
-                                arr[6][1]++; //RTP
+                                if (isRTP(previousA, previousB)) {
+                                    arr[6][1]++; //RTP
+                                }
                             } else if (((port[0].valueOf() >= 5060) && (port[0].valueOf() <= 5065)) ||
                                 ((port[1].valueOf() >= 5060) && (port[1].valueOf() <= 5065))) {
                                 arr[5][1]++; //SIP
@@ -195,8 +197,7 @@ function convertToJSON() {
     return arr;
 }
 
-function isRTP(prevA, prevB)
-{
+function isRTP(prevA, prevB) {
     if (prevA >= 5060 && prevA <= 5065) {
         return true;
     }
