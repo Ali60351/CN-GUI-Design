@@ -112,6 +112,7 @@ function convertToJSON() {
 
     var previousA = 0;
     var previousB = 0;
+    var port = 0;
 
     if (contents.length !== 0) { // Define to JSON type
         console.log("Buffer length: " + contents.length);
@@ -130,7 +131,7 @@ function convertToJSON() {
                             //arr[0][1]++;
                             console.log('Inside 3rd IF');
                             console.log("ALALALA" + jsonContent[i]._source.layers['tcp.port']);
-                            var port = jsonContent[i]._source.layers['tcp.port'];
+                            port = jsonContent[i]._source.layers['tcp.port'];
                             console.log('port[0]: ' + port[0]);
                             //port = port.split(',');
 
@@ -159,7 +160,7 @@ function convertToJSON() {
                             previousA = port[0].valueOf();
                             previousB = port[1].valueOf();
                         } else if (jsonContent[i]._source.layers.hasOwnProperty('udp.port')) {
-                            var port = jsonContent[i]._source.layers['udp.port'];
+                            port = jsonContent[i]._source.layers['udp.port'];
                             console.log('port[0]: ' + port[0]);
                             //port = port.split(',');
 
