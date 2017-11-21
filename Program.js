@@ -224,7 +224,7 @@ function toInt(n) {
 
 function startCap() {
     var executablePath = "C:\\Program Files\\Wireshark\\tshark.exe";
-    var parameters = ["-i", "WiFi", "-w", "sout"];
+    var parameters = ["-i", "5", "-w", "sout"];
 
     child_process.spawn(executablePath, parameters);
 }

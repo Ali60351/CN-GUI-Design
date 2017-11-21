@@ -1,5 +1,5 @@
 {
-  "name": "OpenSourceSync",
+  "name": "Network Classification Tool",
   "version": "1.0.0",
   "description": "Control multiple PCs with a single pair of mouse and keyboard",
   "main": "main.js",
